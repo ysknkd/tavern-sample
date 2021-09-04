@@ -1,0 +1,16 @@
+---
+
+test_name: Make sure that the server will either return a 200 or a 404
+
+stages:
+  - name: super simple test
+    request:
+      url: "http://localhost:3000"
+      headers:
+        $ext:
+          function: testing-utils:generate_token
+      method: GET
+    response:
+      status_code:
+        - 200
+        - 404
